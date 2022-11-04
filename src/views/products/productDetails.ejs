@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head.ejs -->
+  <%- include ('../partials/head.ejs') %>
+  <body>
+    <!-- Header.ejs -->
+    <%- include ('../partials/header.ejs') %>
+    <main>
+      <div class="p-details-cakes">
+        <!-- Foreach que ayuda a evitar crear varios articulos de forma estatica -->
+        <section class="cajaProd-pDetail">
+          <div class="imgProduct-pDetail">
+            <img
+              src="/images/products/<%= product.Images[0].fileName %>"
+              alt="<%= product.nombre %>"
+            />
+          </div>
+          <section class="producto-pDetail">
+            <div class="nombreProd-pDetail"><%= product.name %></div>
+						<% if(product.discount > 0) { 
+							let finalPrice = (product.price * ((100 - product.discount) / 100)).toFixed(0)
+						%>
+              <div class="product-detail">              
+                <span class="product-detail-price">
+                  $<%= toThousand(product.price) %>
+                </span>
+                <span class="product-detail-price-discount">
+                  <b><%= product.discount %> % OFF</b>
+                </span>
+              </div>
+
+							<p class="product-detail-price-final">
+								$<%= toThousand(finalPrice) %>
+							</p>
+						<% } else { %>
+							<p class="product-detail-price">
+								$<%= toThousand(product.price) %>
+							</p>
+						<% } %>
+            <div class="descripcionProd-pDetail">
+              <%= product.description %>
+            </div>
+            <div class="boxbotonCompra-pDetail">
+              <a href="javascript:void(0)">
+                <button type="submit" class="form-button">Agregar al carrito</button>
+              </a>
+            </div>
+            <% if (locals.userLogged && locals.userLogged.user.roleId == 1) { %>
+              <div class="edit-delete">
+                  <a href="/products/edit/<%= product.id %>"> 
+                    <button class="botton-no-format" type="submit">EDITAR</button>
+                  </a>
+	                <form class="delete-form" action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="botton-no-format">ELIMINAR</button>
+                  </form>
+            </div>
+            <% } %>
+            <input id="inputId" type="hidden" value="<%= product.id %>">
+          </section>
+        </section>
+      </div>
+      <section class="destacados">
+        <h3 class="pdest">Más deliciosos productos para deleitarse!</h3>
+        <div class="imgprod">
+            <% destacados.forEach(product => { %>
+                <%- include ('../partials/article.ejs',{product})  %> 
+            <% }) %>
+        </div>
+    </section>
+    </main>
+    <!-- Footer.ejs -->
+    <%- include ('../partials/footer.ejs') %>
+    <script src="/js/detailAddToCart.js"></script>
+  </body>
+</html>

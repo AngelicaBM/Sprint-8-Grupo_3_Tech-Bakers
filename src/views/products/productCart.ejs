@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head.ejs -->
+<%- include ('../partials/head.ejs') %> 
+<body>
+    <!-- Header.ejs -->
+    <%- include ('../partials/header.ejs')  %> 
+    <main class="resumen-compras">
+    <section class="carro">
+        <div class="contenedor-compras">
+            <div class="articulos-productCart">
+                <h4>Articulos en tu carrito:</h4>
+                <table class="menu-carro">
+                    <thead>    
+                        <tr>
+                            <td class="cart-table-name">Product</td>
+                            <td class="cart-table-price">Precio</td>
+                            <td class="cart-table-quantity">Cantidad</td>
+                            <td class="cart-table-total">Total</td>
+                            <td class="cart-table-discountt">Descuento %</td>
+                            <td class="cart-table-delete"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>  
+                </table>
+            </div>
+            <h4>Cupón de descuento</h4>
+            <div class="cupon-productCart">
+                <div class="form-cupon" action="#" method="GET">
+                    <input type="text" name="codigo" id="codigo" placeholder="Código">
+                    <button class="form-button-descuento" >Aplicar descuento</button>
+                </div>
+            </div>
+            </div>
+        <div class="total-productCart">
+            <div class="text-comprar">
+                <p>
+                    La confirmación de su pedido no garantiza la existencia de stock.  
+                </p>
+            </div>
+            <div class="compra-total">
+                    <div class="subtotal"><p></p>
+                    </div>
+                    <div class="total-discount"><p></p>
+                    </div>
+                    <div class="total-price"><p></p>
+                    </div>
+            </div>
+            <button class="form-button-carro">Realizar pedido</button>
+            <a href="/products"><button class="form-button-carro">Seguir Comprando</button></a>
+        </div>
+    </section>
+
+</main>
+    <!-- Footer.ejs -->
+    <%- include ('../partials/footer.ejs') %> 
+    <script src="/js/displayCart.js"></script>
+</body>
+</html>

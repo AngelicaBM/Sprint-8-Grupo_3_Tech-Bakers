@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head.ejs -->
+  <%- include ('../partials/head.ejs') %>
+  <body>
+    <!-- Header.ejs -->
+    <%- include ('../partials/header.ejs') %>
+    <main>
+      <div class="p-details-cake">
+        <section class="destacados">
+          <h3 class="pdest">Nuestros productos</h3>
+          <div class="imgprod">
+        <!-- Foreach que ayuda a evitar crear varios articulos de forma estatica -->
+        <% products.forEach(product => { %>
+                    <%- include ('../partials/article.ejs',{product})  %> 
+      <% }) %>
+      </div>
+      </section>
+    </main>
+    <!-- Footer.ejs -->
+    <%- include ('../partials/footer.ejs') %>
+  </body>
+</html>

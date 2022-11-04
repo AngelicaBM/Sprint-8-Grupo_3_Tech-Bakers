@@ -1,0 +1,26 @@
+[
+ {
+  "fullname": "Test",
+  "lastname": "Test",
+  "email": "test@test1.com",
+  "phonenumber": "123123123",
+  "address": "test",
+  "city": "test",
+  "password": "$2a$10$0EU6DjtFb.5QqzRxZnHI4.hAUEyXppDCneBo0dm9hPqhH0/ApUhwq",
+  "terms": "terms",
+  "image": "default-user.png",
+  "id": 1
+ },
+ {
+  "fullname": "Waylen",
+  "lastname": "Waylen",
+  "email": "wtanfield1@dion.ne.jp",
+  "phonenumber": "456",
+  "address": "Cra 46 # 20 -20",
+  "city": "Medellin",
+  "password": "$2a$10$0EU6DjtFb.5QqzRxZnHI4.hAUEyXppDCneBo0dm9hPqhH0/ApUhwq",
+  "terms": "terms",
+  "image": "imgProductAvatar_1662957732962hola.jpg",
+  "id": 2
+ }
+]

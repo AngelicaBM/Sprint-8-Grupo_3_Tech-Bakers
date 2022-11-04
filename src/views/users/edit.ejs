@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head.ejs -->
+<%- include ('../partials/head.ejs') %> 
+<body>
+    <!-- Header.ejs -->
+    <%- include ('../partials/header.ejs')  %> 
+    <main class="main-register">
+        <div class="formulario-de-registro">      
+            <div class="form-select">
+                <div class="select1">
+                <a>
+                <h2>Editar Cuenta</h2>
+                </a>
+                </div>
+            </div>
+            <form class="inputs" action="/users/edit/<%= locals.user && user.id || idToUpdate %>?_method=PUT "  method="POST" enctype="multipart/form-data">
+                <div class="form-data">
+                    <label for="fullname"> Nombre: </label>
+                    <input 
+                        type="text" 
+                        name="fullname" 
+                        id="fullname"
+                        value= "<%=locals.oldData && oldData.fullname || locals.user && user.fullname%>" 
+                    >
+                    <% if (locals.errors && errors.fullname) { %>
+                        <div class="form-error">
+                            <%= errors.fullname.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <label for="lastname"> Apellido: </label>
+                    <input 
+                        type="text" 
+                        name="lastname" 
+                        id="lastname"
+                        value= "<%=locals.oldData && oldData.lastname || locals.user && user.lastname%>" 
+                    >
+                    <% if (locals.errors && errors.lastname) { %>
+                        <div class="form-error">
+                            <%= errors.lastname.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <label for="email"> Email: </label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        id="email"
+                        value= "<%=locals.oldData && oldData.email || locals.user && user.email%>" 
+                    >
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="form-error">
+                            <%= errors.email.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <label for="phonenumber"> Teléfono: </label>
+                    <input 
+                        type="number" 
+                        name="phonenumber" 
+                        id="phonenumber"
+                        value= "<%=locals.oldData && oldData.phonenumber || locals.user && user.phonenumber%>" 
+                    >
+                    <% if (locals.errors && errors.phonenumber) { %>
+                        <div class="form-error">
+                            <%= errors.phonenumber.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <label for="address"> Dirección: </label>
+                    <input 
+                        type="text" 
+                        name="address" 
+                        id="address"
+                        value= "<%=locals.oldData && oldData.address || locals.user && user.address%>" 
+                    >
+                    <% if (locals.errors && errors.address) { %>
+                        <div class="form-error">
+                            <%= errors.address.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <label for="city"> Ciudad: </label>
+                    <input 
+                        type="text" 
+                        name="city" 
+                        id="city"
+                        value= "<%=locals.oldData && oldData.city || locals.user && user.city%>" 
+                    >
+                    <% if (locals.errors && errors.city) { %>
+                        <div class="form-error">
+                            <%= errors.city.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <label for="contraseña"> Nueva Contraseña: </label>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        id="password"
+                    >
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="form-error">
+                            <%= errors.password.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <label for="repetirpassword"> Confirmar contraseña: </label>
+                    <input 
+                        type="password" 
+                        name="repetirpassword" 
+                        id="repetirpassword"
+                    >
+                    <% if (locals.errors && errors.repetirpassword) { %>
+                        <div class="form-error">
+                            <%= errors.repetirpassword.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data">
+                    <img src="/images/avatars/<%= user.image %>  " alt="">
+                    <label for="avatar"> Imagen de perfil: </label>
+                    <input 
+                        type="file" 
+                        name="avatar" 
+                        id="avatar" 
+                        accept=".jpg, .png" 
+                    >
+                    <% if (locals.errors && errors.avatar) { %>
+                        <div class="form-error">
+                            <%= errors.avatar.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="form-data-register">
+                    <input type="checkbox" name="terms"  value="terms" required> Acepto terminos y condiciones.
+                </div>
+
+                <div class="form-data" id="form-data">
+                    <button class="form-button" type="submit" Enviar> Aceptar
+                </div>            
+            </form>
+        </div>
+    </main>
+       <!-- Footer.ejs -->
+       <%- include ('../partials/footer.ejs') %> 
+</body>
+</html>

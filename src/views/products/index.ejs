@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head.ejs -->
+<%- include ('../partials/head.ejs') %> 
+<body>
+    <!-- Header.ejs -->
+    <%- include ('../partials/header.ejs')  %> 
+    <main>
+        <section class="carrusel">
+                <img src="/images/products/PrincImg.jpg">
+            </nav>
+        </section>
+        <section class="Nosotros">
+            <h2><%= nosotros.titulo %></h2> 
+            <p class="texto"><%= nosotros.descripcion1 %>
+                <br>
+                <%= nosotros.descripcion2 %>
+                </p>
+        </section>
+        <section class="destacados">
+            <h3 class="pdest">Deliciosos productos para deleitarse!</h3>
+            <div class="imgprod">
+                <!-- Foreach que ayuda a evitar crear varios articulos de forma estatica -->
+                <% destacados.forEach(product => { %>
+                    <%- include ('../partials/article.ejs',{product})  %> 
+                <% }) %>
+            </div>
+        </section>
+    </main>
+    <!-- Footer.ejs -->
+    <%- include ('../partials/footer.ejs') %> 
+</body>
+</html>
